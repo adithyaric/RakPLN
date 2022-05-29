@@ -27,13 +27,16 @@
 					</tr>
 					<tr>
 						<td>Jumlah Material</td>
-						<td><input type="text" class="form-control" name="jumlah_barang" value="<?php echo $ambil['jumlah_barang']; ?>" placeholder="Masukkan Jumlah Material" required></td>
+						<td><input type="number" class="form-control" name="jumlah_barang" value="<?php echo $ambil['jumlah_barang']; ?>" placeholder="Masukkan Jumlah Material" required></td>
 					</tr>
 					<tr>
 						<td>Satuan Material</td>
 						<td><input type="text" class="form-control" name="satuan_barang" value="<?php echo $ambil['satuan_barang']; ?>" placeholder="Masukkan Satuan Material" required></td>
 					</tr>
-
+					<tr>
+						<td>Pin Led</td>
+						<td><input type="number" class="form-control" name="pin_led" value="<?php echo $ambil['pin_led']; ?>" placeholder="Masukkan pin led" required></td>
+					</tr>
 					<tr>
 						<td>Kode Rak Material</td>
 						<td>
@@ -69,14 +72,15 @@ if (isset($_POST['update_barang'])) {
 	$id = $_POST['id'];
 	$nama_barang = $_POST['nama_barang'];
 	$jumlah_barang = $_POST['jumlah_barang'];
+	$pin_led = $_POST['pin_led'];
 	$satuan_barang = $_POST['satuan_barang'];
 	$kode_rak = $_POST['kode_rak'];
 	// $rak_kolom = $_POST['rak_kolom'];
 	// $kode_rak = $rak_kolom . $rak_baris;
 
 
-	if (!empty($nama_barang) || !empty($jumlah_barang) || !empty($satuan_barang) || !empty($rak_baris) || !empty($rak_kolom)) {
-		$koneksi->query("UPDATE tb_statistik SET status_update = 'Perbarui Data', nama_barang = '$nama_barang', jumlah_barang = '$jumlah_barang', satuan_barang = '$satuan_barang', kode_rak = '$kode_rak' WHERE id = '$id'");
+	if (!empty($nama_barang) || !empty($jumlah_barang) || !empty($satuan_barang) || !empty($rak_baris) || !empty($rak_kolom) || !empty($pin_led)) {
+		$koneksi->query("UPDATE tb_statistik SET status_update = 'Perbarui Data', nama_barang = '$nama_barang', jumlah_barang = '$jumlah_barang', satuan_barang = '$satuan_barang', kode_rak = '$kode_rak', pin_led = '$pin_led' WHERE id = '$id'");
 
 		echo "<script>alert('Material berhasil diupdate !');</script>";
 		echo "<script>location='index.php';</script>";

@@ -26,7 +26,7 @@
 
 				<tr>
 					<td>Jumlah Material</td>
-					<td><input type="text" class="form-control" name="jumlah_barang" placeholder="Masukkan Jumlah Material" required></td>
+					<td><input type="number" class="form-control" name="jumlah_barang" placeholder="Masukkan Jumlah Material" required></td>
 				</tr>
 			</tbody>
 		</table>
@@ -52,7 +52,7 @@
 if(isset($_POST['update_barang'])) {
 	$nama_barang = $_POST['nama_barang'];
 	$jumlah_barang = $_POST['jumlah_barang'];
-	$kode_rak = $rak_kolom.$rak_baris;
+	// $kode_rak = $rak_kolom.$rak_baris;
 
 
 	if(!empty($nama_barang) || !empty($jumlah_barang)) {

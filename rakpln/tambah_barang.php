@@ -15,12 +15,17 @@
 
 				<tr>
 					<td>Jumlah Material</td>
-					<td><input type="text" class="form-control" name="jumlah_barang" placeholder="Masukkan Jumlah Material" required></td>
+					<td><input type="number" class="form-control" name="jumlah_barang" placeholder="Masukkan Jumlah Material" required></td>
 				</tr>
 
 				<tr>
 					<td>Satuan Material</td>
 					<td><input type="text" class="form-control" name="satuan_barang" placeholder="Masukkan Satuan Material" required></td>
+				</tr>
+
+				<tr>
+					<td>Pin Led</td>
+					<td><input type="number" class="form-control" name="pin_led" placeholder="Masukkan pin led" required></td>
 				</tr>
 
 				<tr>
@@ -57,12 +62,13 @@
 if (isset($_POST['simpan_barang'])) {
 	$nama_barang = $_POST['nama_barang'];
 	$jumlah_barang = $_POST['jumlah_barang'];
+	$pin_led = $_POST['pin_led'];
 	$satuan_barang = $_POST['satuan_barang'];
 	$rak_baris = $_POST['rak_baris'];
 	$rak_kolom = $_POST['rak_kolom'];
 	$kode_rak = $rak_kolom . $rak_baris;
 
-	if (!empty($nama_barang) || !empty($jumlah_barang) || !empty($satuan_barang) || !empty($rak_baris) || !empty($rak_kolom)) {
+	if (!empty($nama_barang) || !empty($jumlah_barang) || !empty($satuan_barang) || !empty($rak_baris) || !empty($rak_kolom) || !empty($pin_led)) {
 
 		$data = $koneksi->query("SELECT * FROM tb_statistik WHERE nama_barang='$nama_barang'");
 		$jmldata = $data->num_rows;
@@ -70,7 +76,7 @@ if (isset($_POST['simpan_barang'])) {
 		// $jml = $pecahan['jumlah_barang'];
 
 		if (!$jmldata > 0) {
-			$koneksi->query("INSERT INTO tb_statistik (status_update, nama_barang, jumlah_barang, satuan_barang, kode_rak) VALUES ('Baru', '$nama_barang', '$jumlah_barang', '$satuan_barang', '$kode_rak')");
+			$koneksi->query("INSERT INTO tb_statistik (status_update, nama_barang, jumlah_barang, satuan_barang, kode_rak, pin_led) VALUES ('Baru', '$nama_barang', '$jumlah_barang', '$satuan_barang', '$kode_rak', '$pin_led')");
 			echo "<script>alert('Material baru berhasil ditambahkan !');</script>";
 			echo "<script>location='index.php';</script>";
 		} else {

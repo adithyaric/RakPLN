@@ -24,6 +24,7 @@
 			<th class="text-center" width="100px">Nama barang</th>
 			<th class="text-center" width="100px">Jumlah</th>
 			<th class="text-center" width="100px">Kode Rak</th>
+			<th class="text-center" width="100px">Pin Led</th>
 			<th class="text-center" width="100px">Aksi</th>
 		</tr>
 	</thead>
@@ -45,6 +46,7 @@
 					<td><?php echo $pecah['nama_barang']; ?></td>
 					<td><?php echo $pecah['jumlah_barang'] . " " . $pecah['satuan_barang']; ?></td>
 					<td><?php echo $pecah['kode_rak']; ?></td>
+					<td><?php echo $pecah['pin_led']; ?></td>
 					<td>
 						<a type="button" class="btn btn-warning mr-2" href="update_barang.php?id=<?php echo $pecah['id']; ?>">
 							Edit <i class="fa fa-edit"></i></a>
